@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+.header-app {
+  background: #2E52F8 !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-app .demo-logo {
+  padding: 0px 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-app .ant-menu-root {
+  background: #2E52F8 !important;
+  color: #fff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-app .option-right {
+  width: 100%;
+}
+.header-app .option-right .row {
+  gap: 20px;
+}
+.header-app .option-right .section-avatar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  color: #fff;
+  font-weight: bold;
 }
-
-.App-link {
-  color: #61dafb;
+.header-app .option-right img {
+  filter: invert(1);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-app .option-right .logo-right {
+  background: #fff;
+  padding: 0px 20px;
+}
+.content-app {
+  background: #fff;
+}
+.content-app .title-content {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.content-app .buttonAdd {
+  background: #2E52F8;
+  border: none;
+}
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: #fff;
+  filter: blur(1);
+  background: #6682ff;
 }
