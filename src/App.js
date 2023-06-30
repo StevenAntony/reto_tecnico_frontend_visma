@@ -86,7 +86,7 @@ function App() {
               </Col>
               <Col >
                 <div className='section-avatar'>
-                  <img src={avatar} />
+                  <img src={avatar} alt='avatar' />
                   <p>Administrador</p>
                   <FontAwesomeIcon icon={faAngleDown} color='#fff' />
                 </div>

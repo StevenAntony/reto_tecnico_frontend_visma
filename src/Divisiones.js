@@ -62,14 +62,14 @@ const Divisiones = ({ dataTable, filterCheck }) => {
     };
 
     const filterText = (search , column) => {
-        if(search == ''){
+        if(search === ''){
             setCopyDataTable(dataTable)
             return
         }
 
         const filterData = dataTable.filter(obj => {
             const { di_nombre, di_colaborador, di_embajador, di_nivel, ds_nombre, cantidadSubdivision } = obj
-            if (column == 'all') 
+            if (column === 'all') 
                 return di_nombre.includes(search) || `${di_colaborador}`.includes(search) || di_embajador.includes(search)
                         || `${di_nivel}`.includes(search)  || ds_nombre.includes(search) || `${cantidadSubdivision}`.includes(search)
 
@@ -148,7 +148,7 @@ const Divisiones = ({ dataTable, filterCheck }) => {
             filters: filterCheck.nivel,
             filterSearch: true,
             filteredValue: filteredInfo.di_nivel || null,
-            onFilter: (value, record) => record.di_nivel == value,
+            onFilter: (value, record) => record.di_nivel === value,
             ellipsis: true
         },
         {
@@ -214,17 +214,7 @@ const Divisiones = ({ dataTable, filterCheck }) => {
                             position: ['none', 'bottomRight'],
                         }} 
                         rowSelection={rowSelection} columns={columns} dataSource={copyDataTable} onChange={handleChange} 
-                        expandable={{
-                            expandedRowRender: (record) => (
-                              <p
-                                style={{
-                                  margin: 0,
-                                }}
-                              >
-                                {'SubDivisión'}
-                              </p>
-                            ),
-                        }}
+                        
                         rowKey={(record) => record.di_nombre}
                 />
             </div>
