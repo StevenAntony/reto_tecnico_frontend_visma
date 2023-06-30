@@ -61,19 +61,21 @@ const Divisiones = ({ dataTable, filterCheck }) => {
         setSortedInfo(sorter);
     };
 
+    const searchText = (cadena, search) => `${cadena}`.toLowerCase().includes(`${search}`.toLowerCase()); 
+
     const filterText = (search , column) => {
         if(search === ''){
             setCopyDataTable(dataTable)
             return
         }
-
+        search = search.toLowerCase();
         const filterData = dataTable.filter(obj => {
             const { di_nombre, di_colaborador, di_embajador, di_nivel, ds_nombre, cantidadSubdivision } = obj
             if (column === 'all') 
-                return di_nombre.includes(search) || `${di_colaborador}`.includes(search) || di_embajador.includes(search)
-                        || `${di_nivel}`.includes(search)  || ds_nombre.includes(search) || `${cantidadSubdivision}`.includes(search)
+                return searchText(di_nombre,search) || searchText(di_colaborador, search) || searchText(di_embajador, search)
+                        || searchText(di_nivel,search)  || searchText(ds_nombre,search) || searchText(cantidadSubdivision,search)
 
-            return `${obj[column]}`.includes(search)
+            return searchText(obj[column], search);
         })
         
         setCopyDataTable(filterData)

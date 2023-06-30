@@ -37,7 +37,7 @@ const listarDivision = async () => {
     const response = await fetch(`${API_URL}${api.url}`, requestOptions);
     const json = await response.json();
     
-    return json;
+    return json.data;
 }
 
 export {listarDivision, crearDivision};
