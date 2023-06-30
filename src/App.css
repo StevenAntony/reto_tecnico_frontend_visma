@@ -39,6 +39,29 @@
   background: #2E52F8;
   border: none;
 }
+.content-app .group-button-gap {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+.ant-table-content .ant-table-column-title {
+  flex: none!important;
+}
+.ant-table-content .ant-table-column-sorter-full {
+  flex: 1!important;
+}
+.ant-table-content .btn-expand {
+  margin-left: 10px;
+  background: #49C5A9;
+  color: #fff !important;
+  border-color: #47b89d !important;
+  border-radius: 50%;
+  width: 20px!important;
+  height: 20px;
+  font-size: 0.5rem;
+}
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected,
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-selected,
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected,

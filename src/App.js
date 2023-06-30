@@ -1,26 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import mandu from './mandu.svg';
 import avatar from './avatar.svg';
 import './App.less';
 import { Tabs, Layout, Menu, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase,faCircleQuestion, faBell, faAngleDown, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { DownloadOutlined } from '@ant-design/icons';
+import { faBriefcase,faCircleQuestion, faBell, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { DownloadOutlined, PlusOutlined } from '@ant-design/icons';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Divisiones from './Divisiones';
+import {listarDivision} from './service/apiService';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const menuApp = ['Dashboard', 'Organización', 'Modelos', 'Seguimiento']
 
 function App() {
+  const [ isDivisiones, setDivisiones ] = useState([]);
+  const [ isFilterCheck, setFilterCheck ] = useState({
+    division: [],
+    divisionSuperior: [],
+    nivel: [],
+  });
+
+  const listar = async () => {
+    const service = await listarDivision();
+    setDivisiones(service);
+
+    let di_nombres = [], ds_nombres = [], di_niveles = [];
+    service.forEach(element => {
+      di_nombres.push(element.di_nombre);
+      ds_nombres.push(element.ds_nombre);
+      di_niveles.push(element.di_nivel);
+    });
+    
+
+    const nameDivision = [...new Set(di_nombres)];
+    const nameDivisionSuperior = [...new Set(ds_nombres)];
+    const nameNiveles = [...new Set(di_niveles)];
+    
+    const filtersNombre = nameDivision.map(element => ({ text: element, value: element }));
+    const filtersNombreSuperior = nameDivisionSuperior.map(element => ({ text: element, value: element }));
+    const filtersNombreNivel = nameNiveles.map(element => ({ text: element, value: element }));
+
+    setFilterCheck({
+      division: filtersNombre,
+      divisionSuperior: filtersNombreSuperior,
+      nivel: filtersNombreNivel
+    });
+  }
+
+  useEffect(() => {
+    listar();
+  },[])
 
   return (
     <Layout className="layout">
       <Header className='header-app' style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo">
-          <img src={mandu} />
+          <img src={mandu} alt='Logo' />
         </div>
         <Menu
           // theme=""
@@ -54,7 +92,7 @@ function App() {
                 </div>
               </Col>
               <Col className='logo-right'>
-                <img src={mandu} />
+                <img src={mandu}  alt='Logo' />
               </Col>
             </Row>
           </Grid>
@@ -67,9 +105,10 @@ function App() {
                 <p className='title-content'>Organización</p>
               </Col>
               <Col xs={3}>
-                <div className='d-flex'>
-                  <Button type="primary" icon={<DownloadOutlined />} size='large' />
-          
+                <div className='d-flex group-button-gap'>
+                  <Button type="primary" icon={<PlusOutlined />} size='large' />
+                  <Button type="default" icon={<DownloadOutlined />} size='large' />
+                  <Button type="default" icon={<DownloadOutlined />} size='large' />
                 </div>
               </Col>
             </Row>
@@ -79,7 +118,7 @@ function App() {
             {
               key:1,
               label:'Divisiones',
-              children:<Divisiones />
+              children:<Divisiones dataTable={isDivisiones} filterCheck={isFilterCheck} />
             },
             {
               key:2,
