@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000/api/';
+const API_URL = 'http://retovismabackend.stevendev.nom.pe/api/';
 const ENDPOINTS = {
         crearDivision : {method: 'POST', url: 'division'},
         listarDivision: {method: 'GET', url: 'division'},
