@@ -1,0 +1,19 @@
+.btn-icon-header {
+  background: transparent;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #5d5f6a5c;
+  position: relative;
+  font-size: 1.1rem;
+}
+.btn-icon-header .icon-bell {
+  position: absolute;
+  top: 0;
+  font-size: 0.8rem;
+  background: #ff2d67;
+  right: 3px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  color: #fff;
+}

@@ -1,32 +1,62 @@
+.w-100 {
+  width: 100%;
+}
+.container-fluid {
+  padding: 0px;
+}
 .header-app {
   background: #2E52F8 !important;
+  background: linear-gradient(90deg, rgba(46, 82, 248, 0.98082983) 0%, #5c79ff 50%, #56a7f2 100%) !important;
+}
+@media only screen and (max-width: 448px) {
+  .header-app .content-logo {
+    display: none;
+  }
 }
 .header-app .demo-logo {
   padding: 0px 20px;
 }
 .header-app .ant-menu-root {
-  background: #2E52F8 !important;
+  background: transparent!important;
   color: #fff;
 }
 .header-app .option-right {
   width: 100%;
 }
-.header-app .option-right .row {
-  gap: 20px;
+@media only screen and (max-width: 448px) {
+  .header-app .option-right {
+    display: none;
+  }
 }
 .header-app .option-right .section-avatar {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
 }
-.header-app .option-right img {
-  filter: invert(1);
+.header-app .option-right .avatar-user {
+  padding: 0px 20px;
+}
+.header-app .option-right .avatar-user img {
+  border-radius: 50%;
 }
 .header-app .option-right .logo-right {
-  background: #fff;
+  display: none;
   padding: 0px 20px;
+}
+@media only screen and (min-width: 992px) {
+  .header-app .option-right .logo-right {
+    display: block;
+  }
+}
+.header-app .option-right .logo-right img {
+  filter: invert(1);
+}
+.header-app .option-right .logo-right span {
+  background: #fff;
+  padding: 13px 10px;
+  border-radius: 5px;
 }
 .content-app {
   background: #fff;
@@ -67,6 +97,12 @@
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected,
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-selected {
   color: #fff;
-  filter: blur(1);
-  background: #6682ff;
+}
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected span,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item-selected span,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal > .ant-menu-submenu-selected span,
+:where(.css-dev-only-do-not-override-12upa3x).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu-selected span {
+  padding: 13px 10px;
+  border-radius: 5px;
+  background: #ffffff29;
 }

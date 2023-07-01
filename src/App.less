@@ -1,32 +1,63 @@
 @color: #2E52F8;
+@degradadoColor : linear-gradient(90deg, rgba(46,82,248,0.9808298319327731) 0%, rgba(92,121,255,1) 50%, rgba(86,167,242,1) 100%);
+
+.w-100{
+    width: 100%;
+}
+
+.container-fluid{
+    padding: 0px;
+}
 
 .header-app{
     background: @color!important;
+    background: @degradadoColor!important;
+    @media only screen and (max-width: 448px){
+        .content-logo{
+            display: none;
+        }
+    }
+    
     .demo-logo{
         padding: 0px 20px;
     }
     .ant-menu-root{    
-        background: @color!important;
+        background: transparent!important;
         color: #fff;
     }
     .option-right{
         width: 100%;
-        .row{
-            gap: 20px;
+        @media only screen and (max-width: 448px){
+            display: none;
         }
         .section-avatar{
             display: flex;
             align-items: center;
             gap: 10px;
             color: #fff;
-            font-weight: bold;
+            font-weight: 600;
         }
-        img{
-            filter: invert(1);
+        .avatar-user{
+            padding: 0px 20px;
+            img{
+                border-radius: 50%;
+            }
         }
         .logo-right{
-            background: #fff;
+            display: none;
             padding: 0px 20px;
+            @media only screen and (min-width: 992px){
+                display: block;
+            }
+            
+            img{
+                filter: invert(1);
+            }
+            span{
+                background: #fff;
+                padding: 13px 10px;
+                border-radius: 5px;
+            }
         }
     }
 }
@@ -71,8 +102,14 @@
 }
 
 
+
 :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected, :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected, :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected, :where(.css-dev-only-do-not-override-12upa3x).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected{
     color: #fff;
-    filter: blur(1);
-    background: #6682ff;
+    // filter: blur(1);
+    // background: #6682ff;
+    span{
+        padding: 13px 10px;
+        border-radius: 5px;
+        background: #ffffff29;
+    }
 }

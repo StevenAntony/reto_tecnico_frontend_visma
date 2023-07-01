@@ -1,5 +1,6 @@
 {
   "name": "reto_tecnico_frontend_visma",
+  "homepage": "http://retovismafrontend.stevendev.nom.pe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
